@@ -57,3 +57,15 @@ D = [1,1,1,1,1,0,0,0,1,1,1,1,1;
 subplot(2,2,4);
 imshow(D);
 title("Guitar");
+
+
+
+
+
+%{
+Conclusion:
+ Image are represented in a matrix form.
+ Created a grayscale and binary image.
+ 0 - black, 1 - white
+ Two pixels are separated by a comma and ends with a semicolon.
+}%
