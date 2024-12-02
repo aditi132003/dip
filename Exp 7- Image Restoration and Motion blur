@@ -1,0 +1,36 @@
+clc;
+close all;
+I = im2double(imread(&#39;cameraman.tif&#39;));
+figure(1);
+subplot(2,2,1);
+imshow(I);
+title(&#39;Original Image&#39;);
+
+LEN = 21;
+THETA = 11;
+PSF = fspecial(&#39;motion&#39;, LEN, THETA);
+blurred = imfilter(I, PSF, &#39;conv&#39;, &#39;circular&#39;);
+subplot(2,2,2);
+imshow(blurred);
+title(&#39;Blurred Image&#39;);
+
+noise_mean = 0;
+
+noise_var = 0.0001;
+blurred_noisy = imnoise(blurred, &#39;gaussian&#39;, ...
+noise_mean, noise_var);
+subplot(2,2,3);
+imshow(blurred_noisy);
+title(&#39;Simulate Blur and Noise&#39;);
+
+estimated_nsr = 0;
+wnr2 = deconvwnr(blurred_noisy, PSF, estimated_nsr);
+subplot(2,2,4);
+imshow(wnr2);
+title(&#39;Restore Blurred,Noisy Image &#39;);
+
+estimated_nsr = noise_var / var(I(:));
+wnr3 = deconvwnr(blurred_noisy, PSF, estimated_nsr);
+figure(2);
+imshow(wnr3);
+title(&#39;Restoration of Blurred, Noisy Image Using Estimated NSR&#39;);
