@@ -51,3 +51,15 @@ subplot(2,2,4);
 
 imshow(Gs);
 title('Gs(Sobels Filter)');
+
+
+
+
+
+%{
+CONCLUSION:-
+1. We used weighted average filter and median filter for smoothing the image and removing noise.
+2. Median filter is best for removing salt and pepper noise.
+3. Laplacian filter and Sobel has been used for edge detection.
+4. Sobel filter detects wider edges than laplacian filter.
+}%
