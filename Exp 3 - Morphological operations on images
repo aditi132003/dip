@@ -1,0 +1,24 @@
+import cv2
+import numpy as np
+from google.colab.patches import cv2_imshow
+img = cv2.imread('/aditipatil.bmp')
+print('INPUT IMAGE')
+cv2_imshow(img)
+
+
+
+kernel = np.ones((6,6),np.uint(10))
+dilatedimg = cv2.dilate(img,kernel,12)
+print('DILATED IMAGE')
+cv2_imshow(dilatedimg)
+erosionimg = cv2.erode(img,kernel,12)
+print('ERODED IMAGE')
+cv2_imshow(erosionimg)
+kernel = np.ones((7,7),np.uint(10))
+openingimg = cv2.morphologyEx(img, cv2.MORPH_OPEN, kernel)
+print('OPENING IMAGE')
+cv2_imshow(openingimg)
+kernel = np.ones((40,40),np.uint(30))
+closingimg = cv2.morphologyEx(img, cv2.MORPH_CLOSE, kernel)
+print('CLOSING IMAGE')
+cv2_imshow(closingimg)
