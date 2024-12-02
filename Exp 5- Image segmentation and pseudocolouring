@@ -34,3 +34,12 @@ subplot(2,2,3);
 img_concat=cat(3,red,blue,green);
 imshow(img_concat);
 title("Threshold image");
+
+
+
+%{
+CONCLUSION:
+1. High contrast Images are required for Pseudo coloring.
+2. If the Image is 24 bit it is shown 3 times in the output while normally once
+for an 8 bit image.
+}%
