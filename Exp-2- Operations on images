@@ -1,0 +1,101 @@
+1) Arithmetic Operations:
+clc;
+clear all;
+close all;
+
+figure(1);
+Img = imread(&#39;/MATLAB Drive/FLOWER.BMP&#39;);
+subplot(2,2,1);
+imshow(Img);
+title(&quot;Original image&quot;);
+
+% extracting colour images
+red = Img(:,:,1);
+green = Img(:,:,2);
+blue = Img(:,:,3);
+
+% display colour images
+subplot(2,2,2);
+
+imshow(red);
+title(&#39;Red&#39;);
+subplot(2,2,3);
+imshow(green);
+title(&#39;Green&#39;);
+subplot(2,2,4);
+imshow(blue);
+title(&#39;Blue&#39;);
+
+
+2) Logical Operations:
+% displaying binary images
+figure(2);
+Img = imread(&#39;/MATLAB Drive/FLOWER.BMP&#39;);
+
+red1 = im2bw(red);
+
+subplot(2,2,1);
+imshow(red1);
+title(&quot;Binary red image&quot;);
+
+green1 = im2bw(green);
+subplot(2,2,2);
+imshow(green1);
+title(&quot;Binary green image&quot;);
+
+add = imadd(red1,green1);
+subplot(2,2,3);
+imshow(add);
+title(&quot;add image&quot;);
+
+sub = imsubtract(red1,green1);
+subplot(2,2,4);
+imshow(sub);
+title(&quot;sub image&quot;);
+
+3) Set Operation:
+% AND OR operations
+figure(3);
+Img = imread(&#39;/MATLAB Drive/FLOWER.BMP&#39;);
+subplot(2,2,1);
+imshow(Img);
+title(&quot;Original image&quot;);
+
+subplot(2,2,2);
+and = bitand(red,green);
+imshow(and);
+title(&quot;AND operation&quot;);
+
+subplot(2,2,3);
+or = bitor(red,green);
+imshow(or);
+title(&quot;OR operation&quot;);
+
+subplot(2,2,4);
+xor = bitxor(red,green);
+imshow(xor);
+title(&quot;XOR operation&quot;);
+
+4) Spatial Operation:
+% spatial domain
+figure(4);
+subplot(2,2,1);
+comp = imcomplement(Img); %complement
+imshow(comp);
+title(&quot;Complement image&quot;);
+
+subplot(2,2,2);
+left = imrotate(Img, 90); %left rotate
+imshow(left);
+title(&quot;left rotated image&quot;);
+
+subplot(2,2,3);
+compress = imresize(Img, 0.25); %compression
+
+imshow(compress);
+title(&quot;Compressed image&quot;);
+
+subplot(2,2,4);
+expand = imresize(Img, 4); %expansion
+imshow(expand);
+title(&quot;Expanded image&quot;);
