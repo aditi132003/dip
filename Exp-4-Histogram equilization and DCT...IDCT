@@ -1,0 +1,54 @@
+A] Histogram Equalization:
+
+Matlab code:
+
+clc;
+clear all;
+close all;
+
+A = imread(&quot;/MATLAB Drive/PG1.BMP&quot;);
+subplot(2,2,1);
+imshow(A);
+title(&quot;Ist Image&quot;);
+
+subplot(2,2,2);
+B = imhist(A);
+stem(B);
+title(&quot;Histogram of original image &quot;);
+
+subplot(2,2,3);
+C = histeq(A);
+imshow(C);
+title(&quot;Equalized image&quot;);
+
+subplot(2,2,4);
+D = imhist(C);
+
+stem(D);
+title(&quot;Histogram of equalized image &quot;);
+
+
+B] DCT and IDCT of an image:
+
+Matlab code:
+
+clc;
+clear all;
+close all;
+
+A = imread(&quot;/MATLAB Drive/ELIZA.bmp&quot;);
+
+subplot(2,2,1);
+imshow(A);
+title(&quot;Image&quot;);
+
+g = im2double(A);
+c = dct2(g);
+subplot(2,2,2);
+imshow(c);
+title(&quot;DCT&quot;);
+
+d = idct2(c);
+subplot(2,2,3);
+imshow(d);
+title(&quot;IDCT&quot;);
