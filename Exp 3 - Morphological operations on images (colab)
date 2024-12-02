@@ -22,3 +22,12 @@ kernel = np.ones((40,40),np.uint(30))
 closingimg = cv2.morphologyEx(img, cv2.MORPH_CLOSE, kernel)
 print('CLOSING IMAGE')
 cv2_imshow(closingimg)
+
+
+
+
+%{
+Conclusion
+We can obtain diluted,eroded,open and close image using python code which is displayed using imshow
+function.Every image has its specific indication.
+}%
